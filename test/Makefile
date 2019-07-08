@@ -11,7 +11,7 @@ RM=			rm -f
 
 SRC_DIR=	./src/
 
-INC_DIR=	../include/
+INC_DIR=	../include/ray/
 
 SRCS=		$(SRC_DIR)affix.c			\
 			$(SRC_DIR)caps.c			\
@@ -25,10 +25,14 @@ SRCS=		$(SRC_DIR)affix.c			\
 			$(SRC_DIR)split.c			\
 			$(SRC_DIR)trim.c
 
-CFLAGS= 	-W -Wall -Wextra
-CFLAGS+=	-I$(INC_DIR)
+CFLAGS=			-std=gnu18 -pedantic -W -Wall -Wextra -Wshadow -Wundef -Wpointer-arith -Wcast-align
+CFLAGS+=		-Wstrict-prototypes -Wwrite-strings -Waggregate-return -Wcast-qual
+CFLAGS+=		-Wswitch-default -Wunreachable-code -Wuninitialized -Winit-self
+CFLAGS+=		-fPIC
 
-LDFLAGS= 	-L. -lraystring -lcriterion
+CFLAGS+=		-I$(INC_DIR)
+
+LDFLAGS= 	-lraystring -lcriterion
 
 OBJS=		$(SRCS:.c=.o)
 

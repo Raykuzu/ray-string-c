@@ -11,7 +11,7 @@ RM=				rm -f
 
 SRC_DIR=		./src/
 
-INC_DIR=		./include/
+INC_DIR=		./include/ray/
 
 SRCS=			$(SRC_DIR)caps.c			\
 				$(SRC_DIR)char_op.c			\
